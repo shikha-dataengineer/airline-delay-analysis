@@ -1,0 +1,55 @@
+version: 2
+
+sources:
+  - name: airline
+    schema: airline_analytics
+    database: airline-delay-466119
+    tables:
+      - name: airline_delay_raw
+
+models:
+  - name: stg_airline_delay
+    description: "Cleaned and selected airline delay fields"
+    columns:
+      - name: flight_year
+        description: "Year of the flight"
+      - name: flight_month
+        description: "Month of the flight"
+      - name: airline_code
+        description: "Carrier code"
+      - name: airline_name
+        description: "Carrier full name"
+      - name: airport_code
+        description: "Airport code"
+      - name: airport_name
+        description: "Airport name"
+      - name: arr_flights
+        description: "Total arrival flights"
+      - name: arr_del15
+        description: "Arrival flights delayed 15+ minutes"
+      - name: carrier_ct
+        description: "Carrier delay count"
+      - name: weather_ct
+        description: "Weather delay count"
+      - name: nas_ct
+        description: "NAS delay count"
+      - name: security_ct
+        description: "Security delay count"
+      - name: late_aircraft_ct
+        description: "Late aircraft delay count"
+      - name: arr_cancelled
+        description: "Number of cancelled arrival flights"
+      - name: arr_diverted
+        description: "Number of diverted arrival flights"
+      - name: arr_delay
+        description: "Total arrival delay time (minutes)"
+      - name: carrier_delay
+        description: "Delay caused by carrier (minutes)"
+      - name: weather_delay
+        description: "Delay caused by weather (minutes)"
+      - name: nas_delay
+        description: "Delay caused by NAS (minutes)"
+      - name: security_delay
+        description: "Delay caused by security (minutes)"
+      - name: late_aircraft_delay
+        description: "Delay caused by late aircraft (minutes)"
