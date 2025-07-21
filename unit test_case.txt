@@ -1,0 +1,36 @@
+## A simple query to count nulls:
+
+-- sql
+SELECT
+  COUNT(*) AS total_rows,
+  COUNTIF(arr_flights IS NULL) AS arr_flights_nulls,
+  COUNTIF(arr_delay IS NULL) AS arr_delay_nulls,
+  COUNTIF(weather_ct IS NULL) AS weather_ct_nulls
+FROM `airline_analytics.stg_airline_delay`;
+
+
+-- Check for blank or missing fields (before transformation)
+
+SELECT *
+FROM `airline-delay-466119.airline_analytics.stg_airline_delay`
+WHERE arr_flights IS NULL
+   OR arr_delay IS NULL
+   OR weather_ct IS NULL
+LIMIT 10;
+
+
+-- Top airports by number of delays
+
+SELECT airport, airport_name, SUM(arr_del15) AS delayed_flights
+FROM `airline-delay-466119.airline_analytics.stg_airline_delay`
+GROUP BY airport, airport_name
+ORDER BY delayed_flights DESC
+LIMIT 10;
+
+-- Delay greater than total flights (possible data issue)
+
+SELECT *
+FROM `airline-delay-466119.airline_analytics.stg_airline_delay`
+WHERE arr_delay > arr_flights
+LIMIT 10;
+
