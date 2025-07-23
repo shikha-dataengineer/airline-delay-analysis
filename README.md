@@ -28,7 +28,7 @@ To showcase the use of **dbt for data modeling and transformation** on a cloud d
    - Checking row counts.
    - Identifying missing or malformed values.
   
-##  Usage
+##     Usage
 
 - Run the checker:
  1. dbt clean
