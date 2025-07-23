@@ -11,3 +11,19 @@ To showcase the use of **dbt for data modeling and transformation** on a cloud d
 ---
 
 ## 🛠️ Tech Stack
+
+- **dbt (data build tool)** – for transformation, testing, and modular SQL modeling
+- **Google BigQuery** – as the cloud data warehouse
+- **CSV Dataset** – historical airline delay data
+- **Google Cloud CLI / dbt CLI** – to deploy and run models
+
+  ## 🚀 Project Workflow
+
+1. **Ingested** the CSV file into BigQuery (raw layer).
+2. **Created dbt project** with a staging model:
+   - Casted numeric fields (e.g., `arr_flights`, `arr_delay`) from strings.
+   - Handled missing/null values safely.
+3. **Built a view** `stg_airline_delay` in BigQuery using dbt.
+4. **Validated** transformations by:
+   - Checking row counts.
+   - Identifying missing or malformed values.
