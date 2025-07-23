@@ -27,3 +27,9 @@ To showcase the use of **dbt for data modeling and transformation** on a cloud d
 4. **Validated** transformations by:
    - Checking row counts.
    - Identifying missing or malformed values.
+  
+##  Usage
+
+- Run the checker:
+ 1. dbt clean
+ 2. dbt run
